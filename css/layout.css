@@ -1,7 +1,16 @@
 .container {
-  max-width: 1000px;
+  max-width: 575px;
   margin: 0 auto;
   padding: 0 1.5rem;
+}
+
+.row {
+  flex-wrap: wrap;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  height: 70px;
 }
 
 .black-row {
@@ -14,16 +23,9 @@
   width: 100%;
 }
 
-.row {
-  display: flex;
-  justify-content: center;
-  text-align: center;
-  align-items: center;
-  height: 70px;
-}
-
 .pokemon-party {
   margin-right: 25px;
+  margin-top: 15px;
 }
 
 .header-row {
@@ -31,31 +33,14 @@
   flex-wrap: wrap;
   justify-content: space-between;
   position: relative;
+  width: 100%;
 }
 
-.row1 {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-
-.row2 {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 100px;
-  margin-top: 25px;
-  height: 500px;
-}
-
-.column-fourth,
 .column-full {
-  padding: 0 0.75rem;
-}
-
-.column-fourth {
-  width: 25%;
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+  flex-wrap: wrap;
 }
 
 .submit-pokeball {
@@ -67,6 +52,12 @@
   border-radius: 60%;
 }
 
+.column-fourth,
+.column-half {
+  width: 100%;
+  flex-wrap: wrap;
+}
+
 .pokemon1 {
   height: 100px;
   width: 100px;
@@ -75,5 +66,71 @@
 .pokemon2 {
   height: 100px;
   width: 100px;
-  margin-left: 25px;
+}
+
+.pokemon-text-1 {
+  margin-bottom: 50px;
+}
+
+.pokemon-text-2 {
+  margin-bottom: 50px;
+}
+
+@media screen and (min-width: 768px) {
+  .container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  .header-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    position: relative;
+    width: 100%;
+  }
+
+  .row1 {
+    margin-top: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
+  .row2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 100px;
+    margin-top: 25px;
+    height: 500px;
+  }
+
+  .column-full {
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+  }
+
+  .column-fourth {
+    width: 25%;
+    padding: 0 0.75rem;
+  }
+
+  .pokemon-title {
+    margin-left: 20%;
+  }
+
+  .pokemon1 {
+    height: 100px;
+    width: 100px;
+  }
+
+  .pokemon2 {
+    height: 100px;
+    width: 100px;
+    margin-left: 25px;
+  }
 }

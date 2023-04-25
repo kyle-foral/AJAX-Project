@@ -1,5 +1,8 @@
 .row {
   background-color: red;
+}
+
+.pokemon-party {
   color: white;
   font-size: 38px;
 }
