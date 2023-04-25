@@ -1,0 +1,33 @@
+.row {
+  background-color: red;
+  color: white;
+  font-size: 38px;
+}
+
+.black-row {
+  background-color: black;
+}
+
+.white-row {
+  background-color: white;
+}
+
+.header-row {
+  background-color: red;
+}
+
+.add {
+  color: white;
+  text-decoration: none;
+  font-size: 32px;
+}
+
+.view {
+  color: white;
+  text-decoration: none;
+  font-size: 32px;
+}
+
+.party-title {
+  font-size: 24px;
+}

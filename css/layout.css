@@ -1,0 +1,79 @@
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.black-row {
+  height: 20px;
+  width: 100%;
+}
+
+.white-row {
+  height: 50px;
+  width: 100%;
+}
+
+.row {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  height: 70px;
+}
+
+.pokemon-party {
+  margin-right: 25px;
+}
+
+.header-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  position: relative;
+}
+
+.row1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.row2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 100px;
+  margin-top: 25px;
+  height: 500px;
+}
+
+.column-fourth,
+.column-full {
+  padding: 0 0.75rem;
+}
+
+.column-fourth {
+  width: 25%;
+}
+
+.submit-pokeball {
+  border-radius: 60%;
+}
+
+.save-pokeball {
+  height: 50px;
+  border-radius: 60%;
+}
+
+.pokemon1 {
+  height: 100px;
+  width: 100px;
+}
+
+.pokemon2 {
+  height: 100px;
+  width: 100px;
+  margin-left: 25px;
+}
