@@ -58,21 +58,22 @@
   flex-wrap: wrap;
 }
 
-.pokemon1 {
-  height: 100px;
-  width: 100px;
+.pokemon1,
+.pokemon2,
+.pokemon3,
+.pokemon4,
+.pokemon5,
+.pokemon6 {
+  height: 300px;
+  width: 300px;
 }
 
-.pokemon2 {
-  height: 100px;
-  width: 100px;
-}
-
-.pokemon-text-1 {
-  margin-bottom: 50px;
-}
-
-.pokemon-text-2 {
+.pokemon-text-1,
+.pokemon-text-2,
+.pokemon-text-3,
+.pokemon-text-4,
+.pokemon-text-5,
+.pokemon-text-6 {
   margin-bottom: 50px;
 }
 
@@ -123,14 +124,21 @@
     margin-left: 20%;
   }
 
-  .pokemon1 {
-    height: 100px;
-    width: 100px;
+  .pokemon2,
+  .pokemon4,
+  .pokemon6 {
+    margin-left: 100px;
   }
 
-  .pokemon2 {
-    height: 100px;
-    width: 100px;
-    margin-left: 25px;
+  .pokemon-text-1,
+  .pokemon-text-3,
+  .pokemon-text-5 {
+    margin-left: 65px;
+  }
+
+  .pokemon-text-2,
+  .pokemon-text-4,
+  .pokemon-text-6 {
+    margin-left: 165px;
   }
 }
