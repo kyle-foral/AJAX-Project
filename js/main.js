@@ -14,6 +14,27 @@ function getPokemonData(event) {
   });
   xhr.send();
 }
-
+const $img = document.querySelectorAll('img');
 const $form = document.getElementById('card-pick');
 $form.addEventListener('change', getPokemonData);
+
+$form.addEventListener('submit', submitPokeball);
+
+function submitPokeball(event) {
+  event.preventDefault();
+  const entry = {
+    entryId: data.nextEntryId,
+    name1: event.target.elements.pokemon1.value,
+    name2: event.target.elements.pokemon2.value,
+    name3: event.target.elements.pokemon3.value,
+    name4: event.target.elements.pokemon4.value,
+    name5: event.target.elements.pokemon5.value,
+    name6: event.target.elements.pokemon6.value
+  };
+  data.entries.unshift(entry);
+  for (let i = 1; i < $img.length; i++) {
+    $img[i].setAttribute('src', 'images/placeholder-image.png');
+  }
+  $form.reset();
+}
+// console.log($form.elements.pokemon1.value);
