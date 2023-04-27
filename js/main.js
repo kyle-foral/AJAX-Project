@@ -26,6 +26,7 @@ function submitPokeball(event) {
     pokemon5: event.target.elements.pokemon5.value,
     pokemon6: event.target.elements.pokemon6.value
   };
+  data.nextEntryId++;
   data.entries.unshift(entry);
   for (let i = 1; i < $img.length; i++) {
     $img[i].setAttribute('src', 'images/placeholder-image.png');
