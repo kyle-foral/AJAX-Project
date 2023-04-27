@@ -13,6 +13,16 @@
   height: 70px;
 }
 
+.row-view {
+  display: inline-flex;
+  flex-direction: row;
+}
+
+.column-view {
+  display: inline-flex;
+  width: 100%;
+}
+
 .black-row {
   height: 20px;
   width: 100%;
