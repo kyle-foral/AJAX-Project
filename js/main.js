@@ -33,3 +33,45 @@ function submitPokeball(event) {
   }
   $form.reset();
 }
+
+function renderEntry(entry) {
+
+  const $li = document.createElement('li');
+
+  const $viewRow = document.createElement('div');
+  $viewRow.className = 'row-view';
+
+  const $viewColumn = document.createElement('div');
+  $viewColumn.className = 'column-view';
+
+  const $pokemon1 = document.createElement('img');
+  $pokemon1.src = entry.pokemon1;
+
+  const $pokemon2 = document.createElement('img');
+  $pokemon2.src = entry.pokemon2;
+
+  const $pokemon3 = document.createElement('img');
+  $pokemon3.src = entry.pokemon3;
+
+  const $pokemon4 = document.createElement('img');
+  $pokemon4.src = entry.pokemon4;
+
+  const $pokemon5 = document.createElement('img');
+  $pokemon5.src = entry.pokemon5;
+
+  const $pokemon6 = document.createElement('img');
+  $pokemon6.src = entry.pokemon6;
+
+  $li.appendChild($viewRow);
+  $viewRow.appendChild($viewColumn);
+  $viewColumn.appendChild($pokemon1);
+  $viewColumn.appendChild($pokemon2);
+  $viewColumn.appendChild($pokemon3);
+  $viewColumn.appendChild($pokemon4);
+  $viewColumn.appendChild($pokemon5);
+  $viewColumn.appendChild($pokemon6);
+
+  return $li;
+}
+
+renderEntry();
