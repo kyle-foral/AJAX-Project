@@ -67,21 +67,27 @@ function renderEntry(entry) {
 
   const $pokemon1 = document.createElement('img');
   $pokemon1.src = entry.pokemon1;
+  $pokemon1.alt = 'pokemon1';
 
   const $pokemon2 = document.createElement('img');
   $pokemon2.src = entry.pokemon2;
+  $pokemon2.alt = 'pokemon2';
 
   const $pokemon3 = document.createElement('img');
   $pokemon3.src = entry.pokemon3;
+  $pokemon3.alt = 'pokemon3';
 
   const $pokemon4 = document.createElement('img');
   $pokemon4.src = entry.pokemon4;
+  $pokemon4.alt = 'pokemon4';
 
   const $pokemon5 = document.createElement('img');
   $pokemon5.src = entry.pokemon5;
+  $pokemon5.alt = 'pokemon5';
 
   const $pokemon6 = document.createElement('img');
   $pokemon6.src = entry.pokemon6;
+  $pokemon6.alt = 'pokemon6';
 
   $li.appendChild($partyRow);
   $partyRow.appendChild($partyColumn);
