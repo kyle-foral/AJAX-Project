@@ -104,4 +104,17 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 });
 
-// function cardSwap() {}
+function cardSwap(pick) {
+  const $pick = document.querySelector('.pick');
+  const $view = document.querySelector('.view');
+  if (pick === 'pick') {
+    $pick.className = 'pick';
+    $view.classname = 'view hidden';
+  } else {
+    $pick.className = 'pick hidden';
+    $view.className = 'view';
+  }
+  data.view = pick;
+}
+
+cardSwap();

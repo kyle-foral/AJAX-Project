@@ -4,6 +4,10 @@
   padding: 0 1.5rem;
 }
 
+.hidden {
+  display: none;
+}
+
 .row {
   flex-wrap: wrap;
   display: flex;
