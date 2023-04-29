@@ -104,17 +104,25 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 });
 
-function cardSwap(pick) {
-  const $pick = document.querySelector('.pick');
-  const $view = document.querySelector('.view');
-  if (pick === 'pick') {
-    $pick.className = 'pick';
-    $view.classname = 'view hidden';
+function cardSwap(cardpicker) {
+  const $cardpicker = document.querySelector('.cardpicker');
+  const $viewcards = document.querySelector('.viewcards');
+  if (cardpicker === 'cardpicker') {
+    $cardpicker.className = 'cardpicker';
+    $viewcards.className = 'viewcards hidden';
   } else {
-    $pick.className = 'pick hidden';
-    $view.className = 'view';
+    $cardpicker.className = 'cardpicker hidden';
+    $viewcards.className = 'viewcards';
   }
-  data.view = pick;
+  data.view = cardpicker;
 }
 
-cardSwap();
+const $view = document.querySelector('.view');
+$view.addEventListener('click', function () {
+  cardSwap('viewcards');
+});
+
+const $add = document.querySelector('.add');
+$add.addEventListener('click', function () {
+  cardSwap('cardpicker');
+});
