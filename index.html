@@ -27,12 +27,12 @@
       </div>
     </div>
   </header>
-  <main>
-    <div class="container">
-      <form id="card-pick">
+  <main class="container">
+    <div class="card-pick" data-view="pick">
+      <form id="formId">
         <div class="row1">
           <div class="column-full">
-            <input required type="text" class="party-title" maxlength="15" placeholder="Party Name Here">
+            <input required type="text" id="party" class="party-title" maxlength="15" placeholder="Party Name Here">
             <button type="submit" class="submit-pokeball"> <img src="images/pokeball.png" class="save-pokeball"
                 alt="pokeball"></button>
           </div>
@@ -84,29 +84,11 @@
         </div>
       </form>
 
-      <div class="view-card">
-        <div class="row1">
-          <div class="column-full">
-            <input required type="text" class="party-title" maxlength="15" placeholder="Party Name Here">
-            <button type="submit" class="submit-pokeball"> <img src="images/pokeball.png" class="save-pokeball"
-                alt="pokeball"></button>
-          </div>
-        </div>
-        <div class="row-view">
-          <div class="column-view">
-            <ul>
-              <li>
-                <img src="images/placeholder-image.png" class="pokemon1" alt="placeholder">
-                <img src="images/placeholder-image.png" class="pokemon2" alt="placeholder">
-                <img src="images/placeholder-image.png" class="pokemon3" alt="placeholder">
-                <img src="images/placeholder-image.png" class="pokemon4" alt="placeholder">
-                <img src="images/placeholder-image.png" class="pokemon5" alt="placeholder">
-                <img src="images/placeholder-image.png" class="pokemon6" alt="placeholder">
-              </li>
-            </ul>
+      <div class="view-card" data-view="view">
+        <div class="row"></div>
+        <ul>
+        </ul>
 
-          </div>
-        </div>
       </div>
     </div>
 
