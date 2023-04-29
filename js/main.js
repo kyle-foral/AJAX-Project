@@ -1,7 +1,7 @@
-const xhr = new XMLHttpRequest();
 
 function getPokemonData(event) {
   const curInputId = event.target.id;
+  const xhr = new XMLHttpRequest();
   xhr.open('GET', 'https://api.pokemontcg.io/v2/cards?q=!name:' + event.target.value);
   xhr.responseType = 'json';
   xhr.setRequestHeader('X-Api-Key', 'eeb741e2-0d06-436f-90ca-f25488d4f1d4');
@@ -9,7 +9,7 @@ function getPokemonData(event) {
     document.querySelector(`#img${curInputId}`).setAttribute('src', xhr.response.data[0].images.large);
   });
   xhr.send();
-  // console.log('pokemon', $poke1);
+
 }
 const $img = document.querySelectorAll('img');
 
@@ -30,12 +30,12 @@ function submitPokeball(event) {
   const entry = {
     entryId: data.nextEntryId,
     party: event.target.elements.party.value,
-    pokemon1: $poke1,
-    pokemon2: $poke2,
-    pokemon3: $poke3,
-    pokemon4: $poke4,
-    pokemon5: $poke5,
-    pokemon6: $poke6
+    pokemon1: $poke1.src,
+    pokemon2: $poke2.src,
+    pokemon3: $poke3.src,
+    pokemon4: $poke4.src,
+    pokemon5: $poke5.src,
+    pokemon6: $poke6.src
   };
   data.nextEntryId++;
   data.entries.unshift(entry);
@@ -85,7 +85,7 @@ function renderEntry(entry) {
   $li.appendChild($partyRow);
   $partyRow.appendChild($partyColumn);
   $partyColumn.appendChild($partyTitle);
-  $partyRow.appendChild($viewRow);
+  $partyColumn.appendChild($viewRow);
   $viewRow.appendChild($viewColumn);
   $viewColumn.appendChild($pokemon1);
   $viewColumn.appendChild($pokemon2);
