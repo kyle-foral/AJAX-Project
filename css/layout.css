@@ -20,6 +20,7 @@
 .row-view {
   display: inline-flex;
   flex-direction: row;
+  padding-left: 30%;
 }
 
 .column-view {
@@ -62,6 +63,7 @@
 img {
   width: 50%;
   height: 50%;
+  margin: 1%;
 }
 
 .submit-pokeball {
@@ -128,6 +130,10 @@ img {
     margin-bottom: 100px;
     margin-top: 25px;
     height: 500px;
+  }
+
+  .row-view {
+    padding-left: 0%;
   }
 
   .column-full {
