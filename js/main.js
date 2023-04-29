@@ -37,6 +37,7 @@ function submitPokeball(event) {
     pokemon5: $poke5.src,
     pokemon6: $poke6.src
   };
+  cardSwap('viewcards');
   data.nextEntryId++;
   data.entries.unshift(entry);
   for (let i = 1; i < $img.length; i++) {
