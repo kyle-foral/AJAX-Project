@@ -9,9 +9,14 @@ function getPokemonData(event) {
     document.querySelector(`#img${curInputId}`).setAttribute('src', xhr.response.data[0].images.large);
   });
   xhr.send();
-
 }
 const $img = document.querySelectorAll('img');
+const $text1 = document.querySelector('#pokemon1');
+const $text2 = document.querySelector('#pokemon2');
+const $text3 = document.querySelector('#pokemon3');
+const $text4 = document.querySelector('#pokemon4');
+const $text5 = document.querySelector('#pokemon5');
+const $text6 = document.querySelector('#pokemon6');
 
 const $poke1 = document.querySelector('#imgpokemon1');
 const $poke2 = document.querySelector('#imgpokemon2');
@@ -35,7 +40,13 @@ function submitPokeball(event) {
     pokemon3: $poke3.src,
     pokemon4: $poke4.src,
     pokemon5: $poke5.src,
-    pokemon6: $poke6.src
+    pokemon6: $poke6.src,
+    pokemontext1: $text1.value,
+    pokemontext2: $text2.value,
+    pokemontext3: $text3.value,
+    pokemontext4: $text4.value,
+    pokemontext5: $text5.value,
+    pokemontext6: $text6.value
   };
   cardSwap('viewcards');
   data.nextEntryId++;
@@ -67,27 +78,27 @@ function renderEntry(entry) {
 
   const $pokemon1 = document.createElement('img');
   $pokemon1.src = entry.pokemon1;
-  $pokemon1.alt = 'pokemon1';
+  $pokemon1.alt = entry.pokemontext1;
 
   const $pokemon2 = document.createElement('img');
   $pokemon2.src = entry.pokemon2;
-  $pokemon2.alt = 'pokemon2';
+  $pokemon2.alt = entry.pokemontext2;
 
   const $pokemon3 = document.createElement('img');
   $pokemon3.src = entry.pokemon3;
-  $pokemon3.alt = 'pokemon3';
+  $pokemon3.alt = entry.pokemontext3;
 
   const $pokemon4 = document.createElement('img');
   $pokemon4.src = entry.pokemon4;
-  $pokemon4.alt = 'pokemon4';
+  $pokemon4.alt = entry.pokemontext4;
 
   const $pokemon5 = document.createElement('img');
   $pokemon5.src = entry.pokemon5;
-  $pokemon5.alt = 'pokemon5';
+  $pokemon5.alt = entry.pokemontext5;
 
   const $pokemon6 = document.createElement('img');
   $pokemon6.src = entry.pokemon6;
-  $pokemon6.alt = 'pokemon6';
+  $pokemon6.alt = entry.pokemontext6;
 
   $li.appendChild($partyRow);
   $partyRow.appendChild($partyColumn);
@@ -102,6 +113,7 @@ function renderEntry(entry) {
   $viewColumn.appendChild($pokemon6);
 
   return $li;
+
 }
 
 const $ul = document.querySelector('ul');
