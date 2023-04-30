@@ -1,3 +1,7 @@
+.hidden {
+  display: none !important;
+}
+
 .container {
   max-width: 575px;
   margin: 0 auto;
@@ -11,6 +15,19 @@
   text-align: center;
   align-items: center;
   height: 70px;
+}
+
+.row-view {
+  display: inline-flex;
+  flex-direction: row;
+  padding-left: 30%;
+}
+
+.column-view {
+  display: inline-flex;
+  width: 100%;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .black-row {
@@ -41,6 +58,12 @@
   justify-content: space-evenly;
   width: 100%;
   flex-wrap: wrap;
+}
+
+img {
+  width: 50%;
+  height: 50%;
+  margin: 1%;
 }
 
 .submit-pokeball {
@@ -109,6 +132,10 @@
     height: 500px;
   }
 
+  .row-view {
+    padding-left: 0%;
+  }
+
   .column-full {
     display: flex;
     justify-content: space-evenly;
@@ -118,6 +145,10 @@
   .column-fourth {
     width: 25%;
     padding: 0 0.75rem;
+  }
+
+  .column-view {
+    flex-direction: row;
   }
 
   .pokemon-title {

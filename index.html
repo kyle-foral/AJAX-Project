@@ -27,12 +27,12 @@
       </div>
     </div>
   </header>
-  <main>
-    <div class="container">
-      <form id="card-pick">
+  <main class="container">
+    <div class="cardpicker" data-view="cardpicker">
+      <form id="formId">
         <div class="row1">
           <div class="column-full">
-            <input required type="text" class="party-title" maxlength="15" placeholder="Party Name Here">
+            <input required type="text" id="party" class="party-title" maxlength="15" placeholder="Party Name Here">
             <button type="submit" class="submit-pokeball"> <img src="images/pokeball.png" class="save-pokeball"
                 alt="pokeball"></button>
           </div>
@@ -83,10 +83,14 @@
           </div>
         </div>
       </form>
-
-
-
     </div>
+
+    <div class="viewcards hidden" data-view="viewcards">
+      <ul>
+      </ul>
+    </div>
+
+
   </main>
   <script src="js/data.js"></script>
   <script src="js/main.js"></script>
