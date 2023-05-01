@@ -67,7 +67,7 @@ function renderEntry(entry) {
   const $partyColumn = document.createElement('div');
   $partyColumn.className = 'column-full';
 
-  const $partyTitle = document.createElement('p');
+  const $partyTitle = document.createElement('span');
   $partyTitle.textContent = entry.party;
 
   const $viewRow = document.createElement('div');
@@ -100,9 +100,21 @@ function renderEntry(entry) {
   $pokemon6.src = entry.pokemon6;
   $pokemon6.alt = entry.pokemontext6;
 
+  const $pen = document.createElement('i');
+  $pen.className = 'fa fa-pencil';
+
+  const $star = document.createElement('i');
+  $star.className = 'fa fa-star';
+
+  const $topline = document.createElement('div');
+  $topline.className = 'topline';
+
   $li.appendChild($partyRow);
   $partyRow.appendChild($partyColumn);
-  $partyColumn.appendChild($partyTitle);
+  $partyColumn.appendChild($topline);
+  $topline.appendChild($star);
+  $topline.appendChild($partyTitle);
+  $topline.appendChild($pen);
   $partyColumn.appendChild($viewRow);
   $viewRow.appendChild($viewColumn);
   $viewColumn.appendChild($pokemon1);

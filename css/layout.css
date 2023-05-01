@@ -41,7 +41,6 @@
 }
 
 .pokemon-party {
-  margin-right: 25px;
   margin-top: 15px;
 }
 
@@ -58,6 +57,12 @@
   justify-content: space-evenly;
   width: 100%;
   flex-wrap: wrap;
+}
+
+.topline {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
 }
 
 img {
@@ -102,7 +107,6 @@ img {
 
 @media screen and (min-width: 768px) {
   .container {
-    max-width: 1000px;
     margin: 0 auto;
     padding: 0 1.5rem;
   }
