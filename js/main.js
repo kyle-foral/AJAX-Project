@@ -60,6 +60,7 @@ function submitPokeball(event) {
 function renderEntry(entry) {
 
   const $li = document.createElement('li');
+  $li.setAttribute('data-entry-id', entry.entryId);
 
   const $partyRow = document.createElement('div');
   $partyRow.className = 'row1';
@@ -129,6 +130,28 @@ function renderEntry(entry) {
 }
 
 const $ul = document.querySelector('ul');
+
+$ul.addEventListener('click', function (event) {
+  const $cardpicker = document.querySelector('.cardpicker');
+  // const $viewcards = document.querySelector('.viewcards');
+  if (event.target.matches('.fa-pencil')) {
+    for (let i = 0; i < data.entries.length; i++) {
+      if (data.entries[i].entryId === Number(event.target.closest('li').getAttribute('data-entry-id'))) {
+        data.editing = data.entries[i];
+        $cardpicker.children[0][0].value = data.entries[i].party;
+        $cardpicker.children[0][2].value = data.entries[i].pokemontext1;
+        $cardpicker.children[0][3].value = data.entries[i].pokemontext2;
+        $cardpicker.children[0][4].value = data.entries[i].pokemontext2;
+        $cardpicker.children[0][5].value = data.entries[i].pokemontext4;
+        $cardpicker.children[0][6].value = data.entries[i].pokemontext5;
+        $cardpicker.children[0][7].value = data.entries[i].pokemontext6;
+        // console.log('card', $cardpicker.children);
+        cardSwap('cardpicker');
+      }
+    }
+  }
+});
+
 document.addEventListener('DOMContentLoaded', function () {
   for (let i = 0; i < data.entries.length; i++) {
     $ul.appendChild(renderEntry(data.entries[i]));
