@@ -134,18 +134,20 @@ const $ul = document.querySelector('ul');
 $ul.addEventListener('click', function (event) {
   const $cardpicker = document.querySelector('.cardpicker');
   // const $viewcards = document.querySelector('.viewcards');
+  // const $formId = document.querySelector('#formId');
   if (event.target.matches('.fa-pencil')) {
     for (let i = 0; i < data.entries.length; i++) {
       if (data.entries[i].entryId === Number(event.target.closest('li').getAttribute('data-entry-id'))) {
         data.editing = data.entries[i];
         $cardpicker.children[0][0].value = data.entries[i].party;
+        // data.entries.pokemon1 = data.entries[i].pokemon1;
         $cardpicker.children[0][2].value = data.entries[i].pokemontext1;
         $cardpicker.children[0][3].value = data.entries[i].pokemontext2;
         $cardpicker.children[0][4].value = data.entries[i].pokemontext2;
         $cardpicker.children[0][5].value = data.entries[i].pokemontext4;
         $cardpicker.children[0][6].value = data.entries[i].pokemontext5;
         $cardpicker.children[0][7].value = data.entries[i].pokemontext6;
-        // console.log('card', $cardpicker.children);
+        // console.log('card', data.entries[i], 'pokemon', data.entries[i].pokemon1, 'view', $formId.elements);
         cardSwap('cardpicker');
       }
     }
