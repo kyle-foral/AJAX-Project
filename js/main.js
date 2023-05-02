@@ -30,36 +30,68 @@ $form.addEventListener('change', getPokemonData);
 $form.addEventListener('submit', submitPokeball);
 
 function submitPokeball(event) {
-
+  const $cardpicker = document.querySelector('.cardpicker');
+  const $li = document.querySelectorAll('li');
   event.preventDefault();
-  const entry = {
-    entryId: data.nextEntryId,
-    party: event.target.elements.party.value,
-    pokemon1: $poke1.src,
-    pokemon2: $poke2.src,
-    pokemon3: $poke3.src,
-    pokemon4: $poke4.src,
-    pokemon5: $poke5.src,
-    pokemon6: $poke6.src,
-    pokemontext1: $text1.value,
-    pokemontext2: $text2.value,
-    pokemontext3: $text3.value,
-    pokemontext4: $text4.value,
-    pokemontext5: $text5.value,
-    pokemontext6: $text6.value
-  };
+  let entry = {};
+  if (data.editing !== null) {
+    for (let i = 0; i < data.entries.length; i++) {
+      if (data.entries[i].entryId === data.editing.entryId) {
+        data.entries[i].party = $cardpicker.children[0][0].value;
+        data.entries[i].pokemon1 = $poke1.src;
+        data.entries[i].pokemon2 = $poke2.src;
+        data.entries[i].pokemon3 = $poke3.src;
+        data.entries[i].pokemon4 = $poke4.src;
+        data.entries[i].pokemon5 = $poke5.src;
+        data.entries[i].pokemon6 = $poke6.src;
+        data.entries[i].pokemontext1 = $cardpicker.children[0][2].value;
+        data.entries[i].pokemontext2 = $cardpicker.children[0][3].value;
+        data.entries[i].pokemontext3 = $cardpicker.children[0][4].value;
+        data.entries[i].pokemontext4 = $cardpicker.children[0][5].value;
+        data.entries[i].pokemontext5 = $cardpicker.children[0][6].value;
+        data.entries[i].pokemontext6 = $cardpicker.children[0][7].value;
+        const $edited = renderEntry(data.editing);
+        for (let e = 0; e < $li.length; e++) {
+          if (Number($li[e].getAttribute('data-entry-id')) === data.editing.entryId) {
+            $li[e].replaceWith($edited);
+          }
+        }
+      }
+    }
+  } else {
+    entry = {
+      entryId: data.nextEntryId,
+      party: event.target.elements.party.value,
+      pokemon1: $poke1.src,
+      pokemon2: $poke2.src,
+      pokemon3: $poke3.src,
+      pokemon4: $poke4.src,
+      pokemon5: $poke5.src,
+      pokemon6: $poke6.src,
+      pokemontext1: $text1.value,
+      pokemontext2: $text2.value,
+      pokemontext3: $text3.value,
+      pokemontext4: $text4.value,
+      pokemontext5: $text5.value,
+      pokemontext6: $text6.value
+    };
+    const $ul = document.querySelector('ul');
+    $ul.appendChild(renderEntry(entry));
+    data.nextEntryId++;
+    data.entries.unshift(entry);
+  }
   cardSwap('viewcards');
-  data.nextEntryId++;
-  data.entries.unshift(entry);
   for (let i = 1; i < $img.length; i++) {
     $img[i].setAttribute('src', 'images/placeholder-image.png');
   }
   $form.reset();
+  data.editing = null;
 }
 
 function renderEntry(entry) {
 
   const $li = document.createElement('li');
+  $li.setAttribute('data-entry-id', entry.entryId);
 
   const $partyRow = document.createElement('div');
   $partyRow.className = 'row1';
@@ -67,7 +99,7 @@ function renderEntry(entry) {
   const $partyColumn = document.createElement('div');
   $partyColumn.className = 'column-full';
 
-  const $partyTitle = document.createElement('p');
+  const $partyTitle = document.createElement('span');
   $partyTitle.textContent = entry.party;
 
   const $viewRow = document.createElement('div');
@@ -100,9 +132,21 @@ function renderEntry(entry) {
   $pokemon6.src = entry.pokemon6;
   $pokemon6.alt = entry.pokemontext6;
 
+  const $pen = document.createElement('i');
+  $pen.className = 'fa fa-pencil';
+
+  const $star = document.createElement('i');
+  $star.className = 'fa fa-star';
+
+  const $topline = document.createElement('div');
+  $topline.className = 'topline';
+
   $li.appendChild($partyRow);
   $partyRow.appendChild($partyColumn);
-  $partyColumn.appendChild($partyTitle);
+  $partyColumn.appendChild($topline);
+  $topline.appendChild($star);
+  $topline.appendChild($partyTitle);
+  $topline.appendChild($pen);
   $partyColumn.appendChild($viewRow);
   $viewRow.appendChild($viewColumn);
   $viewColumn.appendChild($pokemon1);
@@ -117,10 +161,37 @@ function renderEntry(entry) {
 }
 
 const $ul = document.querySelector('ul');
+
+$ul.addEventListener('click', function (event) {
+  const $cardpicker = document.querySelector('.cardpicker');
+  if (event.target.matches('.fa-pencil')) {
+    for (let i = 0; i < data.entries.length; i++) {
+      if (data.entries[i].entryId === Number(event.target.closest('li').getAttribute('data-entry-id'))) {
+        data.editing = data.entries[i];
+        $cardpicker.children[0][0].value = data.entries[i].party;
+        $poke1.src = data.entries[i].pokemon1;
+        $poke2.src = data.entries[i].pokemon2;
+        $poke3.src = data.entries[i].pokemon3;
+        $poke4.src = data.entries[i].pokemon4;
+        $poke5.src = data.entries[i].pokemon5;
+        $poke6.src = data.entries[i].pokemon6;
+        $cardpicker.children[0][2].value = data.entries[i].pokemontext1;
+        $cardpicker.children[0][3].value = data.entries[i].pokemontext2;
+        $cardpicker.children[0][4].value = data.entries[i].pokemontext2;
+        $cardpicker.children[0][5].value = data.entries[i].pokemontext4;
+        $cardpicker.children[0][6].value = data.entries[i].pokemontext5;
+        $cardpicker.children[0][7].value = data.entries[i].pokemontext6;
+        cardSwap('cardpicker');
+      }
+    }
+  }
+});
+
 document.addEventListener('DOMContentLoaded', function () {
   for (let i = 0; i < data.entries.length; i++) {
     $ul.appendChild(renderEntry(data.entries[i]));
   }
+  cardSwap(data.view);
 });
 
 function cardSwap(cardpicker) {
