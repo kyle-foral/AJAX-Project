@@ -78,6 +78,7 @@ img {
 .save-pokeball {
   height: 50px;
   border-radius: 60%;
+  width: 100%;
 }
 
 .column-fourth,

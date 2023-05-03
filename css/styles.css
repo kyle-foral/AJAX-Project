@@ -31,6 +31,13 @@
   font-size: 32px;
 }
 
+.delete {
+  color: red;
+  text-decoration: none;
+  font-size: 24px;
+  margin-top: 13px;
+}
+
 .party-title {
   font-size: 24px;
 }
