@@ -214,6 +214,20 @@ $view.addEventListener('click', function () {
 
 const $add = document.querySelector('.add');
 $add.addEventListener('click', function () {
+  const $cardpicker = document.querySelector('.cardpicker');
+  $cardpicker.children[0][0].value = null;
+  $poke1.src = 'images/card-backside.png';
+  $poke2.src = 'images/card-backside.png';
+  $poke3.src = 'images/card-backside.png';
+  $poke4.src = 'images/card-backside.png';
+  $poke5.src = 'images/card-backside.png';
+  $poke6.src = 'images/card-backside.png';
+  $cardpicker.children[0][2].value = null;
+  $cardpicker.children[0][3].value = null;
+  $cardpicker.children[0][4].value = null;
+  $cardpicker.children[0][5].value = null;
+  $cardpicker.children[0][6].value = null;
+  $cardpicker.children[0][7].value = null;
   cardSwap('cardpicker');
 });
 

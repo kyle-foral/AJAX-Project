@@ -2,6 +2,14 @@
   display: none !important;
 }
 
+.cardpicker {
+  position: relative;
+}
+
+.viewcards {
+  position: relative;
+}
+
 .container {
   max-width: 575px;
   margin: 0 auto;
@@ -94,7 +102,8 @@ img {
 .pokemon5,
 .pokemon6 {
   height: 300px;
-  width: 300px;
+  width: 275px;
+  border-radius: 5%;
 }
 
 .pokemon-text-1,
@@ -104,6 +113,9 @@ img {
 .pokemon-text-5,
 .pokemon-text-6 {
   margin-bottom: 50px;
+  width: 50%;
+  height: 50px;
+  font-size: 24px;
 }
 
 .modal-buttons {
@@ -204,12 +216,14 @@ img {
   .pokemon-text-3,
   .pokemon-text-5 {
     margin-left: 65px;
+    width: 100%;
   }
 
   .pokemon-text-2,
   .pokemon-text-4,
   .pokemon-text-6 {
     margin-left: 165px;
+    width: 100%;
   }
 
   .show {
