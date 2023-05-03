@@ -2,6 +2,14 @@
   display: none !important;
 }
 
+.cardpicker {
+  position: relative;
+}
+
+.viewcards {
+  position: relative;
+}
+
 .container {
   max-width: 575px;
   margin: 0 auto;
@@ -78,6 +86,7 @@ img {
 .save-pokeball {
   height: 50px;
   border-radius: 60%;
+  width: 100%;
 }
 
 .column-fourth,
@@ -93,7 +102,8 @@ img {
 .pokemon5,
 .pokemon6 {
   height: 300px;
-  width: 300px;
+  width: 275px;
+  border-radius: 5%;
 }
 
 .pokemon-text-1,
@@ -103,6 +113,42 @@ img {
 .pokemon-text-5,
 .pokemon-text-6 {
   margin-bottom: 50px;
+  width: 50%;
+  height: 50px;
+  font-size: 24px;
+}
+
+.modal-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 14%;
+}
+
+.show {
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  width: 500px;
+  height: 154px;
+  margin-top: 67%;
+  margin-left: 15%;
+}
+
+.noshow {
+  display: none;
+}
+
+.dark {
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  min-height: 50vh;
+  flex-wrap: wrap;
+  position: absolute;
+  bottom: 0;
+  top: 0;
+  right: 0;
+  left: 0;
 }
 
 @media screen and (min-width: 768px) {
@@ -170,11 +216,46 @@ img {
   .pokemon-text-3,
   .pokemon-text-5 {
     margin-left: 65px;
+    width: 100%;
   }
 
   .pokemon-text-2,
   .pokemon-text-4,
   .pokemon-text-6 {
     margin-left: 165px;
+    width: 100%;
+  }
+
+  .show {
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    width: 500px;
+    height: 154px;
+    margin-left: 40%;
+    margin-top: 20%;
+  }
+
+  .modal-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 14%;
+  }
+
+  .noshow {
+    display: none;
+  }
+
+  .dark {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    min-height: 50vh;
+    flex-wrap: wrap;
+    position: absolute;
+    bottom: 0;
+    top: 0;
+    right: 0;
+    left: 0;
   }
 }

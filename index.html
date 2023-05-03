@@ -33,6 +33,7 @@
       <form id="formId">
         <div class="row1">
           <div class="column-full">
+            <a href="#" class="delete"> Delete Party </a>
             <input required type="text" id="party" class="party-title" maxlength="15" placeholder="Party Name Here">
             <button type="submit" class="submit-pokeball"> <img src="images/pokeball.png" class="save-pokeball"
                 alt="pokeball"></button>
@@ -41,56 +42,69 @@
 
         <div class="row2">
           <div class="column-fourth">
-            <img src="images/placeholder-image.png" id="imgpokemon1" class="pokemon1" alt="placeholder">
+            <img src="images/card-backside.png" id="imgpokemon1" class="pokemon1" alt="placeholder">
           </div>
           <div class="column-fourth">
-            <input required type="text" id="pokemon1" class="pokemon-text-1" maxlength="15" placeholder="Search Pokemon Here">
+            <input required type="text" id="pokemon1" class="pokemon-text-1" maxlength="15" placeholder="Search Pokemon">
           </div>
           <div class="column-fourth">
-            <img src="images/placeholder-image.png" id="imgpokemon2" class="pokemon2" alt="placeholder">
+            <img src="images/card-backside.png" id="imgpokemon2" class="pokemon2" alt="placeholder">
           </div>
           <div class="column-fourth">
-            <input required type="text" id="pokemon2" class="pokemon-text-2" maxlength="15" placeholder="Search Pokemon Here">
-          </div>
-        </div>
-
-        <div class="row2">
-          <div class="column-fourth">
-            <img src="images/placeholder-image.png" id="imgpokemon3" class="pokemon3" alt="placeholder">
-          </div>
-          <div class="column-fourth">
-            <input required type="text" id="pokemon3" class="pokemon-text-3" maxlength="15" placeholder="Search Pokemon Here">
-          </div>
-          <div class="column-fourth">
-            <img src="images/placeholder-image.png" id="imgpokemon4" class="pokemon4" alt="placeholder">
-          </div>
-          <div class="column-fourth">
-            <input required type="text" id="pokemon4" class="pokemon-text-4" maxlength="15" placeholder="Search Pokemon Here">
+            <input required type="text" id="pokemon2" class="pokemon-text-2" maxlength="15" placeholder="Search Pokemon">
           </div>
         </div>
 
         <div class="row2">
           <div class="column-fourth">
-            <img src="images/placeholder-image.png" id="imgpokemon5" class="pokemon5" alt="placeholder">
+            <img src="images/card-backside.png" id="imgpokemon3" class="pokemon3" alt="placeholder">
           </div>
           <div class="column-fourth">
-            <input required type="text" id="pokemon5" class="pokemon-text-5" maxlength="15" placeholder="Search Pokemon Here">
+            <input required type="text" id="pokemon3" class="pokemon-text-3" maxlength="15" placeholder="Search Pokemon">
           </div>
           <div class="column-fourth">
-            <img src="images/placeholder-image.png" id="imgpokemon6" class="pokemon6" alt="placeholder">
+            <img src="images/card-backside.png" id="imgpokemon4" class="pokemon4" alt="placeholder">
           </div>
           <div class="column-fourth">
-            <input required type="text" id="pokemon6" class="pokemon-text-6" maxlength="15" placeholder="Search Pokemon Here">
+            <input required type="text" id="pokemon4" class="pokemon-text-4" maxlength="15" placeholder="Search Pokemon">
+          </div>
+        </div>
+
+        <div class="row2">
+          <div class="column-fourth">
+            <img src="images/card-backside.png" id="imgpokemon5" class="pokemon5" alt="placeholder">
+          </div>
+          <div class="column-fourth">
+            <input required type="text" id="pokemon5" class="pokemon-text-5" maxlength="15" placeholder="Search Pokemon">
+          </div>
+          <div class="column-fourth">
+            <img src="images/card-backside.png" id="imgpokemon6" class="pokemon6" alt="placeholder">
+          </div>
+          <div class="column-fourth">
+            <input required type="text" id="pokemon6" class="pokemon-text-6" maxlength="15" placeholder="Search Pokemon">
           </div>
         </div>
       </form>
+    </div>
+
+    <div class="overlay">
+      <div class="column-full-modal">
+        <div class="row-modal">
+          <h2 class="">
+            Are you sure you want to delete this party?
+          </h2>
+          <div class="modal-buttons">
+            <button id="cancel"> NO </button>
+            <button id="no-button"> YES </button>
+          </div>
+        </div>
+      </div>
     </div>
 
     <div class="viewcards hidden" data-view="viewcards">
       <ul>
       </ul>
     </div>
-
 
   </main>
   <script src="js/data.js"></script>
