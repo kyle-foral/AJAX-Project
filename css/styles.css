@@ -60,3 +60,35 @@ ul {
 i {
   color: red;
 }
+
+.dark {
+  background: rgb(0 0 0 / 50%);
+}
+
+.show {
+  background-color: white;
+}
+
+.bg {
+  background-color: white;
+}
+
+#no-button {
+  background-color: green;
+  color: black;
+  border-style: none;
+  height: 50px;
+  width: 150px;
+  font-size: 2rem;
+  margin-right: 10px;
+}
+
+#cancel {
+  background-color: red;
+  color: black;
+  border-style: none;
+  height: 50px;
+  width: 150px;
+  font-size: 2rem;
+  margin-left: 10px;
+}
