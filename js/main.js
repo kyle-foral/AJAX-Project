@@ -137,7 +137,7 @@ function renderEntry(entry) {
 
   const $star = document.createElement('i');
   $star.className = 'fa fa-star';
-  $star.setAttribute('id', 'star');
+  $star.setAttribute('data-entry-id', entry.entryId);
 
   const $topline = document.createElement('div');
   $topline.className = 'topline';
@@ -162,7 +162,7 @@ function renderEntry(entry) {
 }
 
 const $ul = document.querySelector('ul');
-
+let starCounter = 0;
 $ul.addEventListener('click', function (event) {
   const $cardpicker = document.querySelector('.cardpicker');
   if (event.target.matches('.fa-pencil')) {
@@ -186,17 +186,22 @@ $ul.addEventListener('click', function (event) {
       }
     }
   }
-  const star = document.querySelector('.fa-star');
+
   if (event.target.matches('.fa-star')) {
-    let number = 0;
-    number++;
-    if (number % 2 === 0) {
-      star.setAttribute = ('fa-star', 'yellow');
-    } else {
-      star.setAttribute = ('fa-star', 'black');
+    const pickedStar = event.target.closest('.fa-star');
+    for (let i = 0; i < data.entries.length; i++) {
+      if (data.entries[i].entryId === Number(event.target.closest('.fa-star').getAttribute('data-entry-id'))) {
+        starCounter++;
+        if (starCounter % 2 === 0) {
+          pickedStar.style.color = 'black';
+        } else {
+          pickedStar.style.color = 'yellow';
+        }
+      }
     }
   }
-});
+}
+);
 
 document.addEventListener('DOMContentLoaded', function () {
   for (let i = 0; i < data.entries.length; i++) {
