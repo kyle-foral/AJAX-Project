@@ -269,3 +269,8 @@ function deleteteam(event) {
   data.editing = null;
   cardSwap('viewcards');
 }
+
+const star = document.querySelector('.fa-star');
+star.addEventListener('click', favorite);
+
+function favorite() {}
