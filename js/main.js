@@ -137,6 +137,7 @@ function renderEntry(entry) {
 
   const $star = document.createElement('i');
   $star.className = 'fa fa-star';
+  $star.setAttribute('id', 'star');
 
   const $topline = document.createElement('div');
   $topline.className = 'topline';
@@ -183,6 +184,16 @@ $ul.addEventListener('click', function (event) {
         $cardpicker.children[0][7].value = data.entries[i].pokemontext6;
         cardSwap('cardpicker');
       }
+    }
+  }
+  const star = document.querySelector('.fa-star');
+  if (event.target.matches('.fa-star')) {
+    let number = 0;
+    number++;
+    if (number % 2 === 0) {
+      star.setAttribute = ('fa-star', 'yellow');
+    } else {
+      star.setAttribute = ('fa-star', 'black');
     }
   }
 });
@@ -269,8 +280,3 @@ function deleteteam(event) {
   data.editing = null;
   cardSwap('viewcards');
 }
-
-const star = document.querySelector('.fa-star');
-star.addEventListener('click', favorite);
-
-function favorite() {}
