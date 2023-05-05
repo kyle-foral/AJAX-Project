@@ -188,7 +188,7 @@ $ul.addEventListener('click', function (event) {
   }
 
   if (event.target.matches('.fa-star')) {
-
+    const $li = document.querySelectorAll('li');
     const pickedStar = event.target.closest('.fa-star');
     for (let i = 0; i < data.entries.length; i++) {
       if (data.entries[i].entryId === Number(event.target.closest('.fa-star').getAttribute('data-entry-id'))) {
@@ -197,21 +197,30 @@ $ul.addEventListener('click', function (event) {
           pickedStar.style.color = 'black';
         } else {
           pickedStar.style.color = 'yellow';
-        }
-      }
-    }
+          data.entries.unshift(data.entries.splice($li[i], 1)[0]);
+          // console.log('star', pickedStar.style.color);
+          // console.log(pickedStar.getAttribute('data-entry-id'));
+          // console.log('data', $li[i]);
 
-    const $li = document.querySelectorAll('li');
-
-    if (pickedStar.style.color === 'yellow') {
-      for (let b = 0; b < $li.length; b++) {
-        if (pickedStar.getAttribute('data-entry-id') === Number(($li[b]).getAttribute('data-entry-id'))) {
-          data.entries.splice(0, 0, $li[b]);
+          if (pickedStar.style.color === 'yellow') {
+            // console.log('yes');
+          }
         }
       }
     }
   }
 }
+  // const closedLi = event.target.closest('li');
+  // const $li = document.querySelectorAll('li');
+
+  // if (pickedStar.style.color === 'yellow') {
+  //   for (let b = 0; b < $li.length; b++) {
+  //     if (pickedStar.getAttribute('data-entry-id') === Number(($li[b]).getAttribute('data-entry-id'))) {
+  //       data.entries.unshift(data.entries.splice($li[b], 1)[0]);
+  //     }
+  //   }
+  // }
+
 );
 
 document.addEventListener('DOMContentLoaded', function () {
