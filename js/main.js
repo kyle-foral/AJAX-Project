@@ -188,6 +188,7 @@ $ul.addEventListener('click', function (event) {
   }
 
   if (event.target.matches('.fa-star')) {
+
     const pickedStar = event.target.closest('.fa-star');
     for (let i = 0; i < data.entries.length; i++) {
       if (data.entries[i].entryId === Number(event.target.closest('.fa-star').getAttribute('data-entry-id'))) {
@@ -196,6 +197,16 @@ $ul.addEventListener('click', function (event) {
           pickedStar.style.color = 'black';
         } else {
           pickedStar.style.color = 'yellow';
+        }
+      }
+    }
+
+    const $li = document.querySelectorAll('li');
+
+    if (pickedStar.style.color === 'yellow') {
+      for (let b = 0; b < $li.length; b++) {
+        if (pickedStar.getAttribute('data-entry-id') === Number(($li[b]).getAttribute('data-entry-id'))) {
+          data.entries.splice(0, 0, $li[b]);
         }
       }
     }
