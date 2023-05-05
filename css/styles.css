@@ -31,6 +31,12 @@
   font-size: 32px;
 }
 
+.favorites {
+  color: white;
+  text-decoration: none;
+  font-size: 32px;
+}
+
 .delete {
   color: red;
   text-decoration: none;
