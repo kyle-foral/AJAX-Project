@@ -137,6 +137,7 @@ function renderEntry(entry) {
 
   const $star = document.createElement('i');
   $star.className = 'fa fa-star';
+  $star.setAttribute('data-entry-id', entry.entryId);
 
   const $topline = document.createElement('div');
   $topline.className = 'topline';
@@ -160,8 +161,51 @@ function renderEntry(entry) {
 
 }
 
-const $ul = document.querySelector('ul');
+const newOl = document.querySelector('ol');
+let counter = 0;
+newOl.addEventListener('click', function (event) {
+  const $cardpicker = document.querySelector('.cardpicker');
 
+  const $li = document.querySelectorAll('li');
+  if (event.target.matches('.fa-star')) {
+    const pickedStar = event.target.closest('.fa-star');
+    for (let i = 0; i < data.entries.length; i++) {
+      if (data.entries[i].entryId === Number(event.target.closest('.fa-star').getAttribute('data-entry-id'))) {
+        counter++;
+        if (counter % 2 === 0) {
+          pickedStar.style.color = 'yellow';
+        } else {
+          pickedStar.style.color = 'black';
+          if (pickedStar.style.color === 'black') {
+            for (let j = 0; j < data.entries.length; j++) {
+              if (data.entries[j].entryId === Number(event.target.closest('.fa-star').getAttribute('data-entry-id'))) {
+                data.editing = data.entries[j];
+                $cardpicker.children[0][0].value = data.entries[j].party;
+                $poke1.src = data.entries[j].pokemon1;
+                $poke2.src = data.entries[j].pokemon2;
+                $poke3.src = data.entries[j].pokemon3;
+                $poke4.src = data.entries[j].pokemon4;
+                $poke5.src = data.entries[j].pokemon5;
+                $poke6.src = data.entries[j].pokemon6;
+
+                for (let o = 0; o < $li.length; o++) {
+                  if ($li[o].getAttribute('data-entry-id') === pickedStar.getAttribute('data-entry-id')) {
+                    $li[o].remove();
+                  }
+                }
+                $ul.appendChild(renderEntry(data.entries[i]));
+                counter = 0;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+);
+const $ul = document.querySelector('ul');
+let starCounter = 0;
 $ul.addEventListener('click', function (event) {
   const $cardpicker = document.querySelector('.cardpicker');
   if (event.target.matches('.fa-pencil')) {
@@ -185,7 +229,49 @@ $ul.addEventListener('click', function (event) {
       }
     }
   }
-});
+
+  const $li = document.querySelectorAll('li');
+
+  if (event.target.matches('.fa-star')) {
+    const pickedStar = event.target.closest('.fa-star');
+    for (let i = 0; i < data.entries.length; i++) {
+      if (data.entries[i].entryId === Number(event.target.closest('.fa-star').getAttribute('data-entry-id'))) {
+        starCounter++;
+        if (starCounter % 2 === 0) {
+          pickedStar.style.color = 'black';
+        } else {
+          pickedStar.style.color = 'yellow';
+          if (pickedStar.style.color === 'yellow') {
+            for (let j = 0; j < data.entries.length; j++) {
+              if (data.entries[j].entryId === Number(event.target.closest('.fa-star').getAttribute('data-entry-id'))) {
+                data.editing = data.entries[j];
+                $cardpicker.children[0][0].value = data.entries[i].party;
+                $poke1.src = data.entries[j].pokemon1;
+                $poke2.src = data.entries[j].pokemon2;
+                $poke3.src = data.entries[j].pokemon3;
+                $poke4.src = data.entries[j].pokemon4;
+                $poke5.src = data.entries[j].pokemon5;
+                $poke6.src = data.entries[j].pokemon6;
+                data.fentries = data.entries[j];
+
+                for (let o = 0; o < $li.length; o++) {
+
+                  if ($li[o].getAttribute('data-entry-id') === pickedStar.getAttribute('data-entry-id')) {
+                    $li[o].remove();
+                  }
+                }
+                newOl.appendChild(renderEntry(data.entries[j]));
+                starCounter = 0;
+                break;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+);
 
 document.addEventListener('DOMContentLoaded', function () {
   for (let i = 0; i < data.entries.length; i++) {
@@ -197,12 +283,19 @@ document.addEventListener('DOMContentLoaded', function () {
 function cardSwap(cardpicker) {
   const $cardpicker = document.querySelector('.cardpicker');
   const $viewcards = document.querySelector('.viewcards');
+  const $favorites = document.querySelector('.favoritecards');
   if (cardpicker === 'cardpicker') {
     $cardpicker.className = 'cardpicker';
     $viewcards.className = 'viewcards hidden';
-  } else {
+    $favorites.className = 'favoritecards hidden';
+  } else if (cardpicker === 'viewcards') {
     $cardpicker.className = 'cardpicker hidden';
     $viewcards.className = 'viewcards';
+    $favorites.className = 'favoritecards hidden';
+  } else {
+    $cardpicker.className = 'cardpicker hidden';
+    $viewcards.className = 'viewcards hidden';
+    $favorites.className = 'favoritecards';
   }
   data.view = cardpicker;
 }
@@ -210,6 +303,11 @@ function cardSwap(cardpicker) {
 const $view = document.querySelector('.view');
 $view.addEventListener('click', function () {
   cardSwap('viewcards');
+});
+
+const $favorites = document.querySelector('.favorites');
+$favorites.addEventListener('click', function () {
+  cardSwap('favoritecards');
 });
 
 const $add = document.querySelector('.add');

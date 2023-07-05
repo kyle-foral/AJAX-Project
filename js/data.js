@@ -3,6 +3,7 @@
 let data = {
   view: 'entry-form',
   entries: [],
+  fentries: [],
   editing: null,
   nextEntryId: 1
 };
